@@ -25,12 +25,12 @@ jobs:
     machine:
       image: ubuntu-2004:2022.07.1
     steps:
-      - get_info:
+      - get_info
   ubuntu-2204:
     machine:
       image: ubuntu-2204:2022.07.1
     steps:
-      - get_info:
+      - get_info
 workflows:
     workflow:
         jobs:
