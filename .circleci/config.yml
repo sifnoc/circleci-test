@@ -1,6 +1,6 @@
 version: 2.1
 jobs:
-  get_machine_info:
+  build:
     machine:
       image: ubuntu-2004:2022.07.1
     steps:
