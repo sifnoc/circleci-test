@@ -1,24 +1,38 @@
 version: 2.1
+commands:
+  get_info:
+    steps:
+        - run:
+            name: Check kernel version
+            command: uname -srm
+        - run:
+            name: Print apt installed packages
+            command: sudo apt list --installed
+        - run:
+            name: Check node version
+            command: node --version
+        - run:
+            name: Check npm version
+            command: npm --version
+        - run:
+            name: Install Yarn
+            command: curl -o- -L https://yarnpkg.com/install.sh | bash
+        - run:
+            name: Check yarn version
+            command: yarn --version
 jobs:
-  build:
+  ubuntu-2004:
     machine:
       image: ubuntu-2004:2022.07.1
     steps:
-      - run:
-          name: Check kernel version
-          command: uname -srm
-      - run:
-          name: Print apt installed packages
-          command: sudo apt list --installed
-      - run:
-          name: Check node version
-          command: node --version
-      - run:
-          name: Check npm version
-          command: npm --version
-      - run:
-          name: Install Yarn
-          command: curl -o- -L https://yarnpkg.com/install.sh | bash
-      - run:
-          name: Check yarn version
-          command: yarn --version
+      - get_info:
+  ubuntu-2204:
+    machine:
+      image: ubuntu-2204:2022.07.1
+    steps:
+      - get_info:
+workflows:
+    workflow:
+        jobs:
+          - ubuntu-2004
+          - ubuntu-2204
