@@ -33,7 +33,7 @@ jobs:
       - get_info
   cimg-node:
     docker:
-      image: cimg/node:12.22.0
+      - image: cimg/node:12.22.0
     steps:
       - get_info
 workflows:
