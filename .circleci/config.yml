@@ -31,8 +31,15 @@ jobs:
       image: ubuntu-2204:2022.07.1
     steps:
       - get_info
+  cimg-node:
+    docker:
+      image: cimg/node:12.22.0
+    steps:
+      - get_info
 workflows:
     workflow:
         jobs:
           - ubuntu-2004
           - ubuntu-2204
+          - cimg-node
+
